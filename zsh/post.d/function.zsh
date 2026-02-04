@@ -1,5 +1,5 @@
 # Functions: 清理远程已删除的本地分支
-function gcp() {
+function gitcleanup() {
    if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
      echo "❌ 错误：当前目录不是 Git 仓库"
      return 1
