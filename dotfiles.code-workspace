@@ -1,0 +1,69 @@
+{
+	"folders": [
+		{
+			"name": "dotfiles",
+			"path": "."
+		}
+	],
+	"settings": {
+		// 编辑器设置
+		"editor.formatOnSave": false,
+		"editor.insertSpaces": false,
+		"editor.detectIndentation": true,
+		"editor.tabSize": 4,
+
+		// 文件设置
+		"files.eol": "\n",
+		"files.insertFinalNewline": true,
+		"files.trimTrailingWhitespace": true,
+		"files.exclude": {
+			"**/.git": true,
+			"**/.DS_Store": true,
+			"**/*.backup": true,
+			"**/.backup": true
+		},
+
+		// Shell 脚本相关
+		"[shellscript]": {
+			"editor.defaultFormatter": "foxundermoon.shell-format",
+			"editor.tabSize": 4
+		},
+
+		// 搜索排除
+		"search.exclude": {
+			"**/.git": true,
+			"**/.backup": true
+		},
+
+		// Git 设置
+		"git.ignoreLimitWarning": true,
+		"git.enableSmartCommit": true,
+		"git.confirmSync": false,
+
+		// 终端设置
+		"terminal.integrated.defaultProfile.osx": "zsh",
+		"terminal.integrated.fontFamily": "MesloLGS NF",
+		"cSpell.words": [
+			"gomonorepo",
+			"gtree",
+			"nvim",
+			"oneline",
+			"powerlevel",
+			"showstash"
+		]
+	},
+	"extensions": {
+		// 推荐的插件 - 建议只安装到此workspace，不要全局安装
+		// 安装时请选择 "Install for Workspace" 而非 "Install"
+		"recommendations": [
+			"foxundermoon.shell-format",
+			"timonwong.shellcheck",
+			"ms-vscode.vscode-github-actions",
+			"editorconfig.editorconfig"
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": []
+	}
+}
