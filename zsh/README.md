@@ -112,7 +112,7 @@ Before setting up these dotfiles, ensure you have the following installed:
 3. **Create a symbolic link to the `.zshrc` from this repo:**
 
    ```bash
-   ln -s ~/dotfiles/.zshrc ~/.zshrc
+   ln -s ~{clone_dir}/dotfiles/.zshrc ~/.zshrc
    ```
 
 4. **Apply the configuration:**
