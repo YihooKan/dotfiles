@@ -24,7 +24,7 @@ if [ -d "$DOTFILES_DIR/post.d" ]; then
   done
 fi
 
-# [5] 加载本地自定义配s置 (不纳入版本控制)
+# [5] 加载本地自定义配置 (不纳入版本控制)
 if [ -d "$DOTFILES_DIR/local.d" ]; then
   for config in "$DOTFILES_DIR/local.d"/*.zsh; do
     source "$config"
