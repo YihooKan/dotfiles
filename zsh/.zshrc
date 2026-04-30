@@ -2,6 +2,7 @@
 # --- 自动化配置框架 ---
 export DOTFILES_DIR="${${(%):-%N}:A:h}"
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/.local/bin:$PATH"
 
 # [1] 加载所有 pre 模块
 if [ -d "$DOTFILES_DIR/pre.d" ]; then
