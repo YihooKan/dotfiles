@@ -9,6 +9,7 @@ A personal Neovim setup managed with [lazy.nvim][lazy].
 - A [Nerd Font](https://www.nerdfonts.com/) (for icons)
 - Node.js (for LSP servers installed via Mason)
 - [ripgrep][ripgrep] — required for Telescope live grep
+- [fd][fd] — required for venv-selector.nvim (Python virtual environment picker)
 
 > **Note:** Telescope's live grep and grep string features depend on
 > `ripgrep`. Without it, those features will silently fail.
@@ -20,6 +21,23 @@ A personal Neovim setup managed with [lazy.nvim][lazy].
 >
 > # Ubuntu / Debian
 > sudo apt install ripgrep
+>
+> # Windows (winget)
+> winget install BurntSushi.ripgrep.MSVC
+> ```
+
+> **Note:** venv-selector.nvim requires `fd` to search for Python virtual
+> environments. Install it before launching Neovim:
+>
+> ```bash
+> # macOS
+> brew install fd
+>
+> # Ubuntu / Debian
+> sudo apt install fd-find
+>
+> # Windows (winget)
+> winget install sharkdp.fd
 > ```
 
 ## Structure
@@ -101,6 +119,7 @@ lazy.nvim will automatically install all plugins on the first launch.
 
 [lazy]: https://github.com/folke/lazy.nvim
 [ripgrep]: https://github.com/BurntSushi/ripgrep
+[fd]: https://github.com/sharkdp/fd
 [tokyonight]: https://github.com/folke/tokyonight.nvim
 [lspconfig]: https://github.com/neovim/nvim-lspconfig
 [mason]: https://github.com/williamboman/mason.nvim
