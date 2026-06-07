@@ -25,8 +25,9 @@ require("lazy").setup({
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "auto" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
-  ui = { border = "none" } -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
+  -- frequency: 每天最多检查一次，避免每次启动都 spawn git 进程拖慢响应
+  checker = { enabled = true, frequency = 86400 },
+  ui = { border = "none" }, -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
 })
 
 -- keymap

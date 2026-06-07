@@ -4,8 +4,4 @@
 -- 准备重新配置
 -- require('gitsigns').setup()
 
-
-return {
-}
-
-
+return {}

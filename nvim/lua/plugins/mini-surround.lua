@@ -7,14 +7,14 @@ return {
   config = function()
     require("mini.surround").setup({
       mappings = {
-            add = "sa",            -- 添加外壳 (Surround Add)
-            delete = "sd",         -- 删除外壳 (Surround Delete)
-            replace = "sr",        -- 替换外壳 (Surround Replace)
-            find = "sf",           -- 查找右侧外壳
-            find_left = "sF",      -- 查找左侧外壳
-            highlight = "sh",      -- 高亮外壳
-            update_n_lines = "sn", -- 更新行数
-          },
+        add = "sa", -- 添加外壳 (Surround Add)
+        delete = "sd", -- 删除外壳 (Surround Delete)
+        replace = "sr", -- 替换外壳 (Surround Replace)
+        find = "sf", -- 查找右侧外壳
+        find_left = "sF", -- 查找左侧外壳
+        highlight = "sh", -- 高亮外壳
+        update_n_lines = "sn", -- 更新行数
+      },
     })
   end,
 }
