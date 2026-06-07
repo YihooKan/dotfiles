@@ -9,7 +9,28 @@ return {
     "b0o/SchemaStore.nvim",
   },
   config = function()
-    -- 1. 初始化Mason(管理后台LSP下载)
+    -- 1. LSP 连接成功时自动绑定快捷键（只在有 LSP 支持的 buffer 里生效）
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+      callback = function(ev)
+        local opts = { buffer = ev.buf, remap = false }
+
+        -- 跳转到定义，多个结果时用 Telescope 列出来选
+        vim.keymap.set("n", "gd", function() require("telescope.builtin").lsp_definitions() end, opts)
+        -- 查找所有引用
+        vim.keymap.set("n", "gr", function() require("telescope.builtin").lsp_references() end, opts)
+        -- 跳转到接口的具体实现
+        vim.keymap.set("n", "gI", function() require("telescope.builtin").lsp_implementations() end, opts)
+        -- 弹出悬浮文档，相当于 VSCode 鼠标悬停效果
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        -- 重命名，改一处全项目同步，相当于 VSCode 的 F2
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        -- 代码修复建议，相当于 VSCode 的黄色灯泡 Ctrl+.
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+      end,
+    })
+
+    -- 2. 初始化Mason(管理后台LSP下载)
     -- 可以使用:Mason来调用Mason管理UI
     require("mason").setup()
 
@@ -22,7 +43,7 @@ return {
         "ruff", -- Python formatter + linter
       },
     })
-    -- 2. 确保自动安装了需要的lsp
+    -- 3. 确保自动安装了需要的lsp
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls", -- lua的lsp
@@ -33,7 +54,7 @@ return {
       },
     })
 
-    -- 3. 启动并且配置lspconfig
+    -- 4. 启动并且配置lspconfig
     -- 直接使用 Neovim 0.11+ 内置的 vim.lsp.config 引擎来启用配置
     -- local lspconfig = require("lspconfig")
     -- lspconfig.lua_ls.setup({})
