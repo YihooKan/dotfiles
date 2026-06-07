@@ -2,6 +2,9 @@ return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPost", "BufWritePost", "InsertLeave" }, -- ⏳ 在读取文件、保存文件、退出输入模式时自动触发检查
   config = function()
+    -- 把 Mason 的 bin 目录加入 PATH，让 nvim-lint 能找到 Mason 安装的工具
+    vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. ":" .. vim.env.PATH
+
     local lint = require("lint")
 
     -- 1. 告诉插件：什么文件类型用什么 Linter
