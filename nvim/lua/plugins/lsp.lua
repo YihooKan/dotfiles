@@ -52,6 +52,7 @@ return {
         "jsonls", -- JSON
         "pyright", -- Python
         "taplo",   -- TOML
+        "sqlls",   -- SQL
       },
     })
 
@@ -110,5 +111,9 @@ return {
 
     vim.lsp.config("taplo", {})
     vim.lsp.enable("taplo")
+
+    -- sqlls：提供 SQL 语法补全和基础校验
+    vim.lsp.config("sqlls", {})
+    vim.lsp.enable("sqlls")
   end,
 }
