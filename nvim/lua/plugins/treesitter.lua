@@ -23,6 +23,8 @@ return {
         "sql", -- 基础的 SQL 高亮
         "jinja", -- Jinja 模版的高亮 (dbt核心)
         "yaml",
+        "json",
+        "jsonc",
       },
 
       -- 启用自动同步安装解析器

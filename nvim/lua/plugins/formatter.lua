@@ -15,6 +15,8 @@ return {
         css = { "prettier" },
         markdown = { "prettier" },
         yaml = { "prettier" },
+        json = { "prettier" },
+        jsonc = { "prettier" },
       },
 
       -- 2. ⚡ 保存时自动格式化 (Format on Save)
