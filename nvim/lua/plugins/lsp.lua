@@ -19,6 +19,7 @@ return {
         "prettier",
         "markdownlint",
         "yamllint",
+        "ruff", -- Python formatter + linter
       },
     })
     -- 2. 确保自动安装了需要的lsp
@@ -28,6 +29,7 @@ return {
         "marksman",
         "yamlls", -- YAML
         "jsonls", -- JSON
+        "pyright", -- Python
       },
     })
 
@@ -72,5 +74,16 @@ return {
       },
     })
     vim.lsp.enable("jsonls")
+    vim.lsp.config("pyright", {
+      settings = {
+        python = {
+          analysis = {
+            typeCheckingMode = "basic", -- off / basic / standard / strict
+            autoImportCompletions = true,
+          },
+        },
+      },
+    })
+    vim.lsp.enable("pyright")
   end,
 }

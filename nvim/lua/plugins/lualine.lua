@@ -40,7 +40,25 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { "filename" },
-        lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_x = {
+          "encoding",
+          "fileformat",
+          "filetype",
+          {
+            -- 只在 Python 文件时显示当前激活的虚拟环境名称（截取路径最后一段，避免显示完整路径）
+            function()
+              local venv = require("venv-selector").venv()
+              if venv then
+                return string.match(venv, "[^/]+$")
+              end
+              return ""
+            end,
+            icon = "",
+            cond = function()
+              return vim.bo.filetype == "python"
+            end,
+          },
+        },
         lualine_y = { "progress" },
         lualine_z = { "location", "lsp_status" },
       },
