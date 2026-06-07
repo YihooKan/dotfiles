@@ -8,6 +8,7 @@ return {
     lint.linters_by_ft = {
       markdown = { "markdownlint" }, -- ✨ 让 markdownlint 守护你的 .md 文件
       yaml = { "yamllint" },
+      python = { "ruff" },
     }
 
     -- 2. 🎯 创建自动化流水线：只要满足上面的 event 条件，就在后台静默检查
