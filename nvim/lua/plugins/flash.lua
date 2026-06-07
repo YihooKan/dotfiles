@@ -5,14 +5,13 @@ return {
     require("flash").setup({
       vscode = true, -- 完美适配 VS Code
       modes = {
-        char = { enable = false } -- 保持原生的 f/F/t/T
-      }
+        char = { enable = false }, -- 保持原生的 f/F/t/T
+      },
     })
 
     -- keymap
     vim.keymap.set("n", "s", function()
-        require("flash").jump()
-    end,
-    { desc = "Flash Jump" })
+      require("flash").jump()
+    end, { desc = "Flash Jump" })
   end,
 }

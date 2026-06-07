@@ -17,7 +17,7 @@ return {
             text = "File Explorer",
             text_align = "center",
             separator = true,
-          }
+          },
         },
         -- 显示 LSP 诊断状态
         diagnostics = "nvim_lsp",
@@ -25,7 +25,7 @@ return {
           local icon = level:match("error") and " " or " "
           return " " .. icon .. count
         end,
-      }
+      },
     })
 
     -- ⚡ 配置标签页切换快捷键 (建议放进地方自治，因为重度依赖此功能)

@@ -11,7 +11,7 @@ vim.g.maplocalleader = "\\"
 
 -- require("folder.filename") -- ~/.config/nvim/<folder>/<fileName>.lua
 require("config.keymaps")
-require("config.lazy") -- ~/.config/nvim/lua/config/lazy.lua 
+require("config.lazy") -- ~/.config/nvim/lua/config/lazy.lua
 -- require("plugins.treesitter") -- 不需要去显示加载，在lazy.lua中自动会去扫描所有的plugins文件夹里的插件配置
 
 -- require("options")
@@ -22,27 +22,30 @@ vim.opt.number = true
 -- 显示相对行号
 vim.opt.relativenumber = true
 -- 启用鼠标支持（在终端里也可以用鼠标滚轮或点击）
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 -- 开启剪贴板共享（让你在 Neovim 里 y 的内容能直接 Command+V 粘贴到其他地方）
-vim.opt.clipboard = 'unnamedplus'
+-- 用 vim.schedule 延迟到 UI 渲染完毕后再执行，避免启动时同步探测剪贴板程序造成阻塞
+vim.schedule(function()
+  vim.opt.clipboard = "unnamedplus"
+end)
 -- 实时搜索（边输入边高亮结果）
 vim.opt.incsearch = true
 -- 显示当前光标所在行的背景颜色
 vim.wo.cursorline = true
 
-vim.opt.tabstop = 2      -- 1个 Tab 显示为多少个空格的宽度
-vim.opt.shiftwidth = 2   -- 每一级自动缩进（如使用 > 或 cindent）的空格数
-vim.opt.softtabstop = 2  -- 在编辑模式下按下 Tab 或 Backspace 时，视作多少个空格
+vim.opt.tabstop = 2 -- 1个 Tab 显示为多少个空格的宽度
+vim.opt.shiftwidth = 2 -- 每一级自动缩进（如使用 > 或 cindent）的空格数
+vim.opt.softtabstop = 2 -- 在编辑模式下按下 Tab 或 Backspace 时，视作多少个空格
 vim.opt.expandtab = true -- 把输入的 Tab 键自动转换为空格（现代编程规范推荐）
 
- -- 诊断行为与外观的全局配置（原生功能，放这里最合适）
+-- 诊断行为与外观的全局配置（原生功能，放这里最合适）
 vim.diagnostic.config({
   underline = true,
   -- 配置行尾的虚拟文本提示
-  virtual_text = { 
+  virtual_text = {
     prefix = "●",
     source = "if_many",
-  }, 
+  },
   -- 告诉 Neovim 只要收到 LSP 数据就立刻刷新界面（即使在输入时也实时更新）
   update_in_insert = true,
   severity_sort = true,
