@@ -51,6 +51,7 @@ return {
         "yamlls", -- YAML
         "jsonls", -- JSON
         "pyright", -- Python
+        "taplo",   -- TOML
       },
     })
 
@@ -106,5 +107,8 @@ return {
       },
     })
     vim.lsp.enable("pyright")
+
+    vim.lsp.config("taplo", {})
+    vim.lsp.enable("taplo")
   end,
 }
