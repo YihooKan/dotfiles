@@ -18,6 +18,7 @@ return {
         json = { "prettier" },
         jsonc = { "prettier" },
         python = { "ruff_format" },
+        toml = { "taplo" },
       },
 
       -- 2. ⚡ 保存时自动格式化 (Format on Save)

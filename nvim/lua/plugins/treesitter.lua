@@ -25,6 +25,7 @@ return {
         "yaml",
         "json",
         "jsonc",
+        "toml",
       },
 
       -- 启用自动同步安装解析器
