@@ -32,3 +32,8 @@ md
 markdownlint
 YAML
 JSON
+saghen
+cmp
+pyright
+yamlls
+preselect
