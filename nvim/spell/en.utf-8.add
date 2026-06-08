@@ -37,3 +37,6 @@ cmp
 pyright
 yamlls
 preselect
+stdin
+cwd
+yaml
