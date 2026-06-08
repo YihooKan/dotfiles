@@ -7,6 +7,13 @@ return {
 
     local lint = require("lint")
 
+    -- markdownlint 默认用 --stdin 模式，此时只能从 Neovim 的 cwd 查找配置文件。
+    -- 改为文件路径模式后，markdownlint 会从文件所在目录向上遍历查找 .markdownlint.yaml，
+    -- 从而正确读取项目根目录中的配置。
+    -- 若项目中不存在任何配置文件，则回退到 markdownlint 的内置默认规则（所有规则启用）。
+    lint.linters.markdownlint.stdin = false
+    lint.linters.markdownlint.args = {}
+
     -- 1. 告诉插件：什么文件类型用什么 Linter
     lint.linters_by_ft = {
       markdown = { "markdownlint" }, -- ✨ 让 markdownlint 守护你的 .md 文件
