@@ -51,15 +51,18 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
--- 1. 开启拼写检查开关
-vim.opt.spell = true
+-- 如果在vscode中则不开启拼写检查
+if not vim.g.vscode then
+  -- 1. 开启拼写检查开关
+  vim.opt.spell = true
 
--- 2. 设置拼写检查的语言为英文
-vim.opt.spelllang = { "en_us", "cjk" }
+  -- 2. 设置拼写检查的语言为英文
+  vim.opt.spelllang = { "en_us", "cjk" }
 
--- 3. 规避代码假阳性报错：让拼写检查只在“注释（Comment）”和“字符串（String）”里生效
--- 这样它就不会去检查你的函数名、变量名，只在你打字、写注释、写配置字符串时帮你看错字
-vim.opt.spelloptions = "camel" -- 兼容驼峰命名法（比如 checkThirdParty 不会被拆开报错）
+  -- 3. 规避代码假阳性报错：让拼写检查只在“注释（Comment）”和“字符串（String）”里生效
+  -- 这样它就不会去检查你的函数名、变量名，只在你打字、写注释、写配置字符串时帮你看错字
+  vim.opt.spelloptions = "camel" -- 兼容驼峰命名法（比如 checkThirdParty 不会被拆开报错）
+end
 
 -- 激活主题
 vim.cmd([[colorscheme tokyonight]])
