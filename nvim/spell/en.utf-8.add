@@ -38,3 +38,6 @@ pyright
 yamlls
 preselect
 vscode
+stdin
+cwd
+yaml
