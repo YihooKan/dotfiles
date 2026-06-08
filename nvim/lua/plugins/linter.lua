@@ -14,6 +14,18 @@ return {
     lint.linters.markdownlint.stdin = false
     lint.linters.markdownlint.args = {}
 
+    -- yamllint 同理：默认 stdin 模式只从 nvim cwd 查找配置文件，且输出 pattern 写死了 "stdin:" 前缀。
+    -- 改为文件路径模式后，yamllint 会从 nvim cwd 向上查找 .yamllint、.yamllint.yaml、.yamllint.yml。
+    -- 同时覆盖 parser pattern，将 "stdin" 替换为匹配任意文件名的 [^:]+。
+    lint.linters.yamllint.stdin = false
+    lint.linters.yamllint.args = { "--format", "parsable" }
+    lint.linters.yamllint.parser = require("lint.parser").from_pattern(
+      "[^:]+:(%d+):(%d+): %[(.+)%] (.+) %((.+)%)",
+      { "lnum", "col", "severity", "message", "code" },
+      { ["error"] = vim.diagnostic.severity.ERROR, ["warning"] = vim.diagnostic.severity.WARN },
+      { source = "yamllint" }
+    )
+
     -- 1. 告诉插件：什么文件类型用什么 Linter
     lint.linters_by_ft = {
       markdown = { "markdownlint" }, -- ✨ 让 markdownlint 守护你的 .md 文件
