@@ -7,6 +7,7 @@ My personal dotfiles for development environment.
 - **[zsh/](zsh/)** — Zsh configuration with Powerlevel10k theme and
   useful plugins
 - **[nvim/](nvim/)** — Neovim configuration managed with lazy.nvim
+- **[lazygit/](lazygit/)** — Lazygit configuration with Catppuccin Macchiato theme
 
 ## Quick Start
 
